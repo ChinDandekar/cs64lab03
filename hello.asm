@@ -3,6 +3,7 @@
 #
 #  Data Area - allocate and initialize variables
 .data
+	enter_int: .asciiz "Enter an integer:\n"
 	hello_world: .asciiz "Hello World 2023!\n"
 	magic_number: .asciiz "The magic number is "
 	exclamation: .asciiz "!!!\n"
@@ -10,6 +11,12 @@
 #Text Area (i.e. instructions)
 .text
 main:
+
+	# Print "Enter an integer:\n"
+	la $a0, enter_int
+	li $v0, 4
+	syscall
+
 	# Recieve input from user and store into $t0
 	li $v0, 5
 	syscall
